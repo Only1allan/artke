@@ -1,1 +1,1 @@
-export const plugins = [require("prettier-plugin-tailwindcss")];
+const plugins = [require("prettier-plugin-tailwindcss")];
