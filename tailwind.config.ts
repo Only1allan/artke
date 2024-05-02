@@ -1,6 +1,4 @@
-import type { Config } from "tailwindcss";
-
-const config: Config = {
+module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -10,23 +8,21 @@ const config: Config = {
   daisyui: {
     themes: [
       {
-        mytheme: {
-          primary: "#00afcc",
-          secondary: "#00cf00",
-          accent: "#6e7a00",
-          neutral: "#221903",
-          "base-100": "#2d2f24",
-          info: "#00aae9",
-          success: "#009700",
-          warning: "#ff8000",
-          error: "#e44968",
+        lightTheme: {
+          primary: "#f4aa3a",
+          secondary: "#f4f4a1",
+          accent: "#1be885",
+          neutral: "#272136",
+          "base-100": "#ffffff",
+          info: "#778ad4",
+          success: "#23b893",
+          warning: "#f79926",
+          error: "#ea535a",
           body: {
-            bg: "#2d2f24",
-            text: "#f1f1f1",
+            "background-color": "#e3e6e6",
           },
         },
       },
     ],
   },
 };
-export default config;
