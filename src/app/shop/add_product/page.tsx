@@ -1,4 +1,5 @@
 import { prisma } from "@/_db/prisma";
+// import FormSubmit from "@/components/FormSubmit";
 import { redirect } from "next/navigation"
 
 async function addProduct(formData: FormData) {
@@ -9,6 +10,7 @@ async function addProduct(formData: FormData) {
     const imageURL = formData.get("imageURL") as string
     const price = Number(formData.get("price"))
 
+    // throw Error("Missing required fields")
     if ((name || description || imageURL || price) === null) {
         throw Error("Missing required fields")
     }
@@ -56,7 +58,7 @@ export default function AddProduct() {
                     placeholder="Price"
                     name="price"
                 />
-                <button className="btn btn-primary btn-block"type="submit">Add Product </button>
+                 <button className="btn btn-primary btn-block" type="submit">Add Product</button>
             </form> 
         </div>
     );

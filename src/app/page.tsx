@@ -1,9 +1,18 @@
+import { prisma } from "@/_db/prisma";
 import Image from "next/image";
+import ProductCards from "@/components/ProductCards";
 
-export default function Home() {
+export default async function Home() {
+  const items = await prisma.products.findMany({
+    orderBy: {
+      id: "desc"
+    }
+  });
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24"> 
-    <div>Homepage</div>
-    </main>
+    <div>
+      <ProductCards product={items[0]}/>
+    </div>
+
   );
 }
