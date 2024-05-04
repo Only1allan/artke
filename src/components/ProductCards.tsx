@@ -12,7 +12,7 @@ export default function ProductCards({product}: ProductCardProps) {
     // const isNew = product.createdAt > new Date(Date.now() - 1000 * 60 * 60 * 24 * 7)
 
     return (
-        <Link href={"/shop/" + product.id[0]}
+        <Link href={"shop/products/" + product.id}
               className="card w-full bg-base-100 hover:shadow-xl transition-shadow"
         >
             <figure>
