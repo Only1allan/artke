@@ -8,11 +8,31 @@ datasource db {
 }
 
 model products {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  id          String      @id @default(auto()) @map("_id") @db.ObjectId
   description String
   imageURL    String
   name        String
   price       Int
+  // createdAt   DateTime @default(now()) @map("created_at")
+  // updatedAt   DateTime @updatedAt
+  items   cartItems[]
+}
+
+model cart {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  // createdAt   DateTime @default(now()) @map("created_at")
+  // updatedAt   DateTime @updatedAt
+  cartItems cartItems[]
+
+}
+
+model cartItems {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  cartId    String   @db.ObjectId
+  cart      cart     @relation(fields: [cartId], references: [id])
+  productId String   @db.ObjectId
+  product   products @relation(fields: [productId], references: [id], onDelete: Cascade)
+  quantity  Int
   // createdAt   DateTime @default(now()) @map("created_at")
   // updatedAt   DateTime @updatedAt
 }
