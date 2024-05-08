@@ -11,7 +11,7 @@ export async function addtocart(productId: string){
     if (cartproducts){
         await prisma.cartItems.update({
             where: { id: cartproducts.id},
-            data: { quantity: cartproducts.quantity + 1}
+            data: { quantity: {increment : 1 } }
         })
         
     }
