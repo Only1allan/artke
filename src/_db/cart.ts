@@ -1,6 +1,6 @@
 import { cookies } from "next/headers"
 import { prisma } from "./prisma";
-import { cart, Prisma } from ".prisma/client";
+import { Prisma } from ".prisma/client";
 
 
 export type CartProducts = Prisma.cartGetPayload<{
