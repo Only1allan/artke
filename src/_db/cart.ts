@@ -7,6 +7,10 @@ export type CartProducts = Prisma.cartGetPayload<{
     include: { cartItems: { include: { product: true } } }
 }>
 
+export type FullCart = Prisma.cartItemsGetPayload<{
+     include: {product: true }
+}>
+
 export type shoppingCart = CartProducts & { size: number, total: number }
 
 export async function createCart(): Promise<shoppingCart>{
