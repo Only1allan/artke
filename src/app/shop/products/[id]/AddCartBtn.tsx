@@ -1,4 +1,5 @@
 "use client"
+// import { redirect } from "next/";
 import { useState, useTransition } from "react";
 
 
@@ -18,6 +19,7 @@ export default function AddCartButton({productId, addtocart}: AddCartButtonProps
                       startTransition(async ()=> {
                         await addtocart(productId);
                         setSuccess(true);
+                        // redirect("/shop"); // server actions bug
                       })
                     }}
                     >
