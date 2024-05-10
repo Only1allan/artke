@@ -1,13 +1,28 @@
 "use client"
+// import { redirect } from "next/";
+import { useState, useTransition } from "react";
+
 
 interface AddCartButtonProps {
     productId: string;
+    addtocart: (productId: string) => Promise<void>;
 }
-export default function AddCartButton({productId}: AddCartButtonProps) {
+export default function AddCartButton({productId, addtocart}: AddCartButtonProps) {
+
+  const [isPending, startTransition] = useTransition();
+  const [success, setSuccess] = useState(false);
     return (
         <div className="flex items-center gap-2">
             <button className="btn btn-primary"
-                    onClick={()=> {}}>
+                    onClick={()=> {
+                      setSuccess(false);
+                      startTransition(async ()=> {
+                        await addtocart(productId);
+                        setSuccess(true);
+                        // redirect("/shop"); // server actions bug
+                      })
+                    }}
+                    >
                 Add to Cart
                 <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -24,6 +39,9 @@ export default function AddCartButton({productId}: AddCartButtonProps) {
           />
         </svg>
             </button>
+            {isPending && <span className="loading loading-spinner loading-md"/>}
+            {/* there is a bug  */}
+            {!isPending && success && <span className="text-success">Added to Cart.</span>}
 
         </div>
     );

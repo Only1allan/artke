@@ -2,6 +2,27 @@ import { prisma } from "@/_db/prisma";
 import Image from "next/image";
 import ProductCards from "@/components/ProductCards";
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { getCart } from "@/_db/cart";
+import CartItemBtn from "@/components/CartItemBtn";
+
+
+async function searchArt(formData: FormData) {
+  "use server"
+
+  const searchArt = formData.get("searchArt") as string
+
+  if (searchArt) {
+    redirect("/search?query=" + searchArt)
+  }
+
+}
+
+
+async function myCart() {
+  "use server"
+  return await getCart();
+}
 
 export default async function Shop() {
   const items = await prisma.products.findMany({
@@ -10,10 +31,14 @@ export default async function Shop() {
     }
   });
 
+  const cartContains = await myCart();
+
   return (
+    
     <div>
+        <h1 className="text-lg text-center font-bold mb-3">Shop</h1>
         <div className="hero rounded-xl bg-base-200" >
-            <div className=" hero-content flex-col lg:flex-row">
+            {/* <div className=" hero-content flex-col lg:flex-row">
               <Image
                     src={items[0].imageURL}
                     alt={items[0].name}
@@ -31,11 +56,24 @@ export default async function Shop() {
                 >Check it out
                 </Link> 
               </div>
+            </div> */}
+            <div className="flex-none gap-2">
+              <form action={searchArt}>
+                <div className="form-control">
+                <input
+                  type="text"
+                  name="searchArt"
+                  placeholder="Search for Art"
+                  className="input input-bordered w-full min-w-[100px]"
+                />
+                </div>
+              </form>
+              <CartItemBtn cart={cartContains} />
             </div>
         </div>
 
         <div className="my-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-          {items.slice(1).map((product) => (
+          {items.map((product) => (
             <ProductCards key={product.id} product={product} />
           ))}
 
