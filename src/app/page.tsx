@@ -14,7 +14,7 @@ export default function Home() {
         <div className="hero-content text-center text-neutral-content relative z-10">
           <div className="max-w-md mx-auto">
             <h1 className="mb-5 text-5xl font-bold">Welcome to Tendo Studio </h1>
-            <p className="mb-5">A hub where aspiring and professional artist connect, collaborate, and sell their talent.</p>
+            <p className="mb-5">A hub where aspiring and professional artists connect, collaborate, and sell their talent.</p>
             <a href="/shop" className="btn btn-primary">Shop Art</a>
           </div>
         </div>
@@ -57,9 +57,9 @@ export default function Home() {
           <div>
             <h1 className="text-5xl font-bold">About </h1>
             <p className="py-6">
-              This project was born from a place of frustration and a deep appreciation for the artistic community. For years, I&apos;ve navigated the world as an aspiring artist, constantly bouncing between different platforms to showcase my work, connect with other creatives, and even find collaborators for projects. It felt disjointed and inefficient. The dream was to have a one-stop shop for artists of all levels, a space where inspiration could spark, connections could flourish, and artistic careers could take flight.
+              This project was born from a place of frustration and a deep appreciation for the artistic community. For years, I have navigated the world as an aspiring artist, constantly bouncing between different platforms to showcase my work, connect with other creatives, and even find collaborators for projects. It felt disjointed and inefficient. The dream was to have a one-stop shop for artists of all levels, a space where inspiration could spark, connections could flourish, and artistic careers could take flight.
 
-              This project started in January 2024 as a portfolio project for  (<a href="https://www.alxafrica.com/" title="ALX Africa Software Engineering Programme"><b>ALX Africa Software Engineering Programme</b></a>). It&apos;s been an incredible journey to develop a platform that addresses the challenges I, and countless other artists, face on a daily basis.
+              This project started in January 2024 as a portfolio project for  (<a href="https://www.alxafrica.com/" title="ALX Africa Software Engineering Programme"><b>ALX Africa Software Engineering Programme</b></a>). It has been an incredible journey to develop a platform that addresses the challenges I, and countless other artists, face on a daily basis.
             </p>
             <p>Feel free to contact me through my email <a href="mailto:kariukiallan850@gmail.com" title="kariukiallan850@gmail.com"><b>kariukiallan850@gmail.com</b></a> Or reach out to me on LinkedIn and Discord</p>
             <div className="flex justify-center space-x-4">
